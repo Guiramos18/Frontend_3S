@@ -198,6 +198,60 @@ def area_circulo():
             return render_template('geometria.html', n1=n1, circulo=circulo)
 
 
+@app.route('/area_quadrado', methods=['GET', 'POST'])
+def area_quadrado():
+    if request.method == 'POST':
+        if request.form['form-n1']:
+            n1 = int(request.form['form-n1'])
+            quadrado = n1 * n1
+            return render_template('geometria.html', n1=n1, quadrado=quadrado)
+
+
+@app.route('/area_hexagono', methods=['GET', 'POST'])
+def area_hexagono():
+    if request.method == 'POST':
+        if request.form['form-n1'] and request.form['form-n2']:
+            n1 = int(request.form['form-n1'])
+            n2 = int(request.form['form-n2'])
+            hexagono = n1 * n2 / 2 * 6
+            return render_template('geometria.html', n1=n1, n2=n2, hexagono=hexagono)
+
+
+@app.route('/perimetro_triangulo', methods=['GET', 'POST'])
+def perimetro_triangulo():
+    if request.method == 'POST':
+        if request.form['form-n1']:
+            n1 = int(request.form['form-n1'])
+            perimetro_triangulo = n1 * 3
+            return render_template('geometria.html', n1=n1, perimetro_triangulo=perimetro_triangulo)
+
+
+@app.route('/perimetro_circulo', methods=['GET', 'POST'])
+def perimetro_circulo():
+    if request.method == 'POST':
+        if request.form['form-n1']:
+            n1 = int(request.form['form-n1'])
+            circulo_p = n1 * 2 * 3.14
+            return render_template('geometria.html', n1=n1, circulo_p=circulo_p)
+
+
+@app.route('/perimetro_quadrado', methods=['GET', 'POST'])
+def perimetro_quadrado():
+    if request.method == 'POST':
+        if request.form['form-n1']:
+            n1 = int(request.form['form-n1'])
+            perimetro_quadrado = n1 * 4
+            return render_template('geometria.html', n1=n1, perimetro_quadrado=perimetro_quadrado)
+
+
+@app.route('/perimetro_hexagono', methods=['GET', 'POST'])
+def perimetro_hexagono():
+    if request.method == 'POST':
+        if request.form['form-n1']:
+            n1 = int(request.form['form-n1'])
+            perimetro_hexagono = n1 * 6
+            return render_template('geometria.html', n1=n1, perimetro_hexagono=perimetro_hexagono)
+
 # TODO Final do código
 
 if __name__ == '__main__':
