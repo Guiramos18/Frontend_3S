@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Login</h1>
+<div class="login">
+    <div class="card_login">
+        <form class="form-login" action="{{ url_for('login') }}" method="post">
+            Email:
+            <label>
+                <input placeholder="Digite seu email" class="form-control w-100" name="form-email">
+            </label>
+
+            Senha:
+            <label>
+                <input placeholder="Digite sua senha" class="form-control w-100" name="form-senha">
+            </label>
+
+            <button type="submit" class="btn btn-info my-2">Entrar</button>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Novo funcionario
+            </button>
+
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastrar funcionario</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-login" action="{{ url_for('cadastrar_funcionario') }}" method="post">
+
+                                <!-- Nome -->
+                                <label>
+                                    Nome:
+                                    <input type="text" placeholder="digite o nome" name="form-nome"
+                                           class="form-control w-100">
+                                </label>
+
+                                <!-- Data de nascimento -->
+                                <label>
+                                    Data de nascimento:
+                                    <input type="date" placeholder="digite a data de nascimento"
+                                           name="form-data-nasc">
+                                </label>
+
+                                <!-- CPF -->
+                                <label>
+                                    CPF:
+                                    <input type="text" placeholder="cpf" name="form-cpf" class="form-control w-100">
+                                </label>
+
+                                <!-- Email -->
+                                <label>
+                                    Email:
+                                    <input type="text" placeholder="email" name="form-email" class="form-control w-100">
+                                </label>
+
+                                <!-- Senha -->
+                                <label>
+                                    Senha:
+                                    <input type="text" placeholder="senha" name="form-senha" class="form-control w-100">
+                                </label>
+
+                                <!-- Cargo -->
+                                <label>
+                                    Cargo:
+                                    <input type="text" placeholder="cargo" name="form-cargo" class="form-control w-100">
+                                </label>
+
+                                <!-- Salario -->
+                                <label>
+                                    Salario:
+                                    <input type="text" placeholder="salario" name="form-salario" class="form-control w-100">
+                                </label>
+
+                                <button type="submit" class="btn btn-info">Cadastrar</button>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+{% endblock %}
