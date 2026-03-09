@@ -252,6 +252,10 @@ def perimetro_hexagono():
             perimetro_hexagono = n1 * 6
             return render_template('geometria.html', n1=n1, perimetro_hexagono=perimetro_hexagono)
 
+@app.route('/animais')
+def animais():
+    return render_template('animais.html')
+
 # TODO Final do código
 
 if __name__ == '__main__':

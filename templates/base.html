@@ -19,18 +19,13 @@
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('calculos') }}">Cálculos</a></li>
         <li><a href="{{ url_for('funcionarios') }}">Funcionários</a></li>
+        <li><a href="{{ url_for('animais') }}">Animais</a></li>
         {% if current_user and current_user.is_authenticated %}
         <li><a data-bs-toggle="modal" data-bs-target="#modalLogout" href="">{{ current_user.nome }}</a></li>
         {% else %}
         <li><a href="{{ url_for('login') }}">Login</a></li>
         {% endif %}
     </ul>
-</div>
-
-<div class="conteudo">
-    {% block conteudo %}
-
-    {% endblock %}
 </div>
 
 <div class="modal fade" id="modalLogout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -49,10 +44,25 @@
     </div>
 </div>
 
+<div class="conteudo">
+    {% for mensagem in get_flashed_messages() %}
+    <div class="item_lista">
+        {{mensagem}}
+    </div>
+    {% endfor %}
+
+    <div>
+        {% block conteudo %}
+        {% endblock %}
+    </div>
+</div>
 
 <!-- Link do javascript para o bootstrap - Final do Body -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+<script src="/static/js/verificacoes.js"></script>
+<script src="/static/js/APIS.js"></script>
 </body>
 </html>
