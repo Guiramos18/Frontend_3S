@@ -28,3 +28,7 @@
 
 ## Funcionarios
 <img width="1905" height="908" alt="image" src="https://github.com/user-attachments/assets/23c99373-0f75-487e-be34-61c84c60c2bb" />
+
+
+## Animais
+<img width="1899" height="911" alt="image" src="https://github.com/user-attachments/assets/d76287a4-7ea7-4bb9-96b8-6f9571e6b7b0" />
