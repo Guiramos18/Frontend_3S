@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="d-flex flex-column gap-5">
+    {% if gatos %}
+    {% for gato in gatos %}
+    <!-- Breed Cards -->
+    <article class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <div class="breed-img-container">
+                    <img alt="Abyssinian" class="breed-img"
+                         src="{{ gato.image }}"/>
+                    <span class="origin-badge">Origin: {{ gato.origin }}</span>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body p-4 d-flex flex-column h-100">
+                    <h3 class="fw-bold fs-2 mb-2 font-headline">{{ gato.name }}</h3>
+                    <p class="text-on-surface-variant small mb-3 lh-lg">The Abyssinian is a breed of domestic
+                        short-haired cat with a distinctive "ticked" tabby coat, in which individual hairs are banded
+                        with different colors.</p>
+                    <div class="mb-4">
+                        {% for temperamento in gato.temperament %}
+                        <span class="badge trait-badge">{{ temperamento }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="row g-4 mb-4 mt-auto">
+                        <div class="col-md-4">
+                            <div class="stat-label"><span>Intelligence</span><span>90%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-label"><span>Energy Level</span><span>95%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-label"><span>Adaptability</span><span>80%</span></div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mt-2">
+                        <a class="btn btn-custom-primary px-4" href="https://en.wikipedia.org/wiki/Abyssinian_cat">Learn
+                            More</a>
+                        <a class="btn btn-custom-secondary px-4" href="#">VetStreet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="card">
+        <h2>{{ gato.name }}</h2>
+        <P>{{ gato.description }}</P>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <h3>Nenhum gato</h3>
+    {% endif %}
+
+</div>
+{% endblock %}
